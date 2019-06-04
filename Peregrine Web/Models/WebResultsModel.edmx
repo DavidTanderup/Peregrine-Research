@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PeregrineResearchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CentralIndexKey">
+          <Key>
+            <PropertyRef Name="CentralIndexKeyID" />
+          </Key>
+          <Property Name="CentralIndexKeyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="CIK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clean Data">
+          <Key>
+            <PropertyRef Name="Symbol" />
+          </Key>
+          <Property Name="Symbol" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CIK" Type="int" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Last Close" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="50 Day Avg" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MACD" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="MACD Signal" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="EMA 12" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="EMA 26" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Stochastic Fast" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Stochastic Slow" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Stochastic Signal" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PeregrineResearch.dbo.Stocks' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Stocks">
+          <Property Name="StockID" Type="int" />
+          <Property Name="Symbol" Type="varchar" MaxLength="255" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Open" Type="nvarchar" MaxLength="255" />
+          <Property Name="High" Type="nvarchar" MaxLength="255" />
+          <Property Name="Low" Type="nvarchar" MaxLength="255" />
+          <Property Name="Close" Type="nvarchar" MaxLength="255" />
+          <Property Name="Volume" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Web Results">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CIK" Type="int" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Last Close" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="50 Day Avg" Type="varchar" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PeregrineResearchModelStoreContainer">
+          <EntitySet Name="CentralIndexKey" EntityType="Self.CentralIndexKey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clean Data" EntityType="Self.Clean Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Web Results" EntityType="Self.Web Results" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PeregrineResearchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CentralIndexKey">
+          <Key>
+            <PropertyRef Name="CentralIndexKeyID" />
+          </Key>
+          <Property Name="CentralIndexKeyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CIK" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clean_datum">
+          <Key>
+            <PropertyRef Name="Symbol" />
+          </Key>
+          <Property Name="Symbol" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CIK" Type="Int32" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_Close" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C50_Day_Avg" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MACD" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MACD_Signal" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMA_12" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMA_26" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stochastic_Fast" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stochastic_Slow" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stochastic_Signal" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Web_Result">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CIK" Type="Int32" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_Close" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="C50_Day_Avg" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PeregrineResearchEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CentralIndexKeys" EntityType="Self.CentralIndexKey" />
+          <EntitySet Name="Clean_Data" EntityType="Self.Clean_datum" />
+          <EntitySet Name="Results" EntityType="Self.Result" />
+          <EntitySet Name="Web_Results" EntityType="Self.Web_Result" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PeregrineResearchModelStoreContainer" CdmEntityContainer="PeregrineResearchEntities">
+          <EntitySetMapping Name="CentralIndexKeys">
+            <EntityTypeMapping TypeName="PeregrineResearchModel.CentralIndexKey">
+              <MappingFragment StoreEntitySet="CentralIndexKey">
+                <ScalarProperty Name="CentralIndexKeyID" ColumnName="CentralIndexKeyID" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="CIK" ColumnName="CIK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clean_Data">
+            <EntityTypeMapping TypeName="PeregrineResearchModel.Clean_datum">
+              <MappingFragment StoreEntitySet="Clean Data">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="PeregrineResearchModel.Result">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CIK" ColumnName="CIK" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Last_Close" ColumnName="Last Close" />
+                <ScalarProperty Name="C50_Day_Avg" ColumnName="50 Day Avg" />
+                <ScalarProperty Name="MACD" ColumnName="MACD" />
+                <ScalarProperty Name="MACD_Signal" ColumnName="MACD Signal" />
+                <ScalarProperty Name="EMA_12" ColumnName="EMA 12" />
+                <ScalarProperty Name="EMA_26" ColumnName="EMA 26" />
+                <ScalarProperty Name="Stochastic_Fast" ColumnName="Stochastic Fast" />
+                <ScalarProperty Name="Stochastic_Slow" ColumnName="Stochastic Slow" />
+                <ScalarProperty Name="Stochastic_Signal" ColumnName="Stochastic Signal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Results">
+            <EntityTypeMapping TypeName="PeregrineResearchModel.Web_Result">
+              <MappingFragment StoreEntitySet="Web Results">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CIK" ColumnName="CIK" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Last_Close" ColumnName="Last Close" />
+                <ScalarProperty Name="C50_Day_Avg" ColumnName="50 Day Avg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
