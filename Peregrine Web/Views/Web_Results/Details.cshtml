@@ -1,0 +1,58 @@
+﻿@model Peregrine_Web.Models.Web_Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Web_Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CIK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Symbol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Close)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Close)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C50_Day_Avg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C50_Day_Avg)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
