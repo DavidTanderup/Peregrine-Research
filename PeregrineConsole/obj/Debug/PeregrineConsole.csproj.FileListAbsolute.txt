@@ -1,0 +1,7 @@
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\bin\Debug\PeregrineConsole.exe.config
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\bin\Debug\PeregrineConsole.exe
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\bin\Debug\PeregrineConsole.pdb
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\obj\Debug\PeregrineConsole.csproj.CoreCompileInputs.cache
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\obj\Debug\PeregrineConsole.exe
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\obj\Debug\PeregrineConsole.pdb
+C:\Users\Davet\source\repos\PeregrineTechincalResearch\PeregrineConsole\obj\Debug\PeregrineConsole.csprojAssemblyReference.cache
